@@ -1,4 +1,4 @@
-## Port.co DEMO
+# Port.co DEMO
 Esta é uma versão de demonstração do App para criação de Portfólios inicialmente obtidos partir da indicação de uma lista de FIIs (Fundos Imobiliários da B3)
 
 ## Objetivo
@@ -11,11 +11,12 @@ O aplicativo permite simular alocações em percentuais do valor total de 100 Mi
 
 As funcionalidades já suportadas pelo aplicativo contemplam estimativa do retorno anual, Índice de Sharpe e Volatilidade anual, para todas as carteiras simuladas. Além disto, há as seguintes:
 
-1. **Alocação Ingênua (Naive Allocation)** dos ativos no portfólio, plotando pie-chart mostrando percentuais e quantidades a serem adquiridas, sempre que houver a não convergência do cálculo do índice de Sharpe (o índice de Sharpe pode divergir, quando houver retornos negativos);
+1. **Alocação Ingênua (Naive Allocation)** dos ativos no portfólio, plotando pie-chart mostrando percentuais e quantidades a serem adquiridas, sempre que houver divergência no série (o índice de Sharpe pode divergir, quando houver retorno negativo)
 2. **Alocação para Portfólio de Variância Mínima (risco mínimo)**, plotando pie-chart mostrando percentuais e quantidades a serem adquiridas;
 3. **Alocação para Portfólio de Máximo Índice de Sharpe**, plotando pie-chart mostrando percentuais e quantidades a serem adquiridas;
 4. **Alocação para Portfólio de Máximo Risco Suportado, dada uma Taxa Livre de Risco**, plotando pie-chart mostrando percentuais e quantidades a serem adquiridas;
 5. **Alocação para Portfólio de Máximo Risco Suportado, forçada a presença obrigatória de determinado ativo no portfólio**, plotando pie-chart dado com percentuais e quantidades a serem adquiridas; e
 6. A**locação para Portfólio com Concentração Forçada em determinados segmentos do mercado** (fornecidos pelo cliente em formato texto), plotando pie-chart e quantidades a serem adquiridas.
 
-Obs.: nesta demonstração, apenas o item 2 está funcional.
+## Mode de Usar
+

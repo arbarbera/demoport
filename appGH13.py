@@ -211,7 +211,7 @@ st.sidebar.image(image, use_column_width=False, width=100)
 
 # Pagina Central
 
-col1, col2, col3 = st.beta_columns((1, 4, 1))
+col1, col2, col3 = st.columns((1, 4, 1))
 
 with col1:
     st.image(image, use_column_width=False, width=100)
@@ -350,7 +350,7 @@ if e_mail:
 
                     df_disp['Date'] = pd.to_datetime(df_disp['Date']).dt.strftime('%Y-%m-%d')
 
-                    # col1, col2 = st.beta_columns(2)
+                    # col1, col2 = st.columns(2)
 
                     # df_disp.index = df_disp.index.normalize()  # tira a horas e minutos do datetime index
                     with col2:
@@ -366,7 +366,7 @@ if e_mail:
                     else:
                         df_acum = proc_ifix.ret_Acum_Diario(df)
 
-                    # col3, col4 = st.beta_columns(2)
+                    # col3, col4 = st.columns(2)
 
                     with col2:
                         st.write("  ")
@@ -379,7 +379,7 @@ if e_mail:
                             st.write("Ativos escolhidos")
                             plot_funcs1.plot_02(df_acum, 'acum')
 
-                    # col5, col6 = st.beta_columns(2)
+                    # col5, col6 = st.columns(2)
 
                     with col2:
                        
