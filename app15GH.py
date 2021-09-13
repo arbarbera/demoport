@@ -152,7 +152,7 @@ def val_Stocks(df_Pos_Escolha, min_limit=30):
 # Montagem da lista de ativos para serem selecionados com multiselect da Streamlit
 
 @st.cache
-def gera_Lista(path='X://Portfolios//Streamlit//Porti//', name_file='all_B3', type_file='csv', codbdi=12):
+def gera_Lista(path='tmp/', name_file='fii_B3', type_file='csv', codbdi=12):
     _file = f'{path}{name_file}.{type_file}'
 
     df2 = pd.read_csv(_file)
@@ -315,16 +315,16 @@ if e_mail:
     tipo_ativo = st.sidebar.selectbox('Escolha o Tipo de Ativo', ['Ações', 'FIIs', 'REITs', 'Stocks', 'Outros'])
 
     if tipo_ativo == 'Ações':
-        op_List = gera_Lista(path='X://Portfolios//Streamlit//Porti//', name_file='all_B3', type_file='csv', codbdi=2)  # usando st.cache
+        op_List = gera_Lista(path='tmp/', name_file='fii_B3', type_file='csv', codbdi=2)  # usando st.cache
 
     if tipo_ativo == 'FIIs':
         op_List = gera_Lista()  # usando st.cache
 
     if tipo_ativo == 'REITs':
-        op_List = gera_Lista(path='X://Portfolios//Streamlit//Porti//', name_file='US_REITs', type_file='csv', codbdi="")  # usando st.cache
+        op_List = gera_Lista(path='tmp/', name_file='US_REITs', type_file='csv', codbdi="")  # usando st.cache
 
     if tipo_ativo == 'Stocks':
-        op_List = gera_Lista(path='X://Portfolios//Streamlit//Porti//', name_file='US_Stocks', type_file='csv', codbdi="")  # usando st.cache
+        op_List = gera_Lista(path='tmp/', name_file='US_Stocks', type_file='csv', codbdi="")  # usando st.cache
 
     _OK = ""
     _Ciao = ""
