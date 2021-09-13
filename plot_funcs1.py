@@ -113,8 +113,17 @@ def pie_Plot_Tickers(df, tipo_portfolio, hole=0.3):
   txt_Centro = 'Pesos'
   legend_order = 'normal'
 
-  
-  if tipo_portfolio == "min_vol":
+  if tipo_portfolio == "max_sharpe":
+    color_pattern = px.colors.diverging.RdBu
+    titulo_grafico = " % - Máximo Índice de Sharpe"
+    compl = ""
+  elif tipo_portfolio == "aloc_max_sharpe":
+    color_pattern = px.colors.sequential.RdBu
+    titulo_grafico = " em Qtdes. de Ações por $100 mil "
+    compl = "Porfólio de Máx. Indice de Sharpe"
+    txt_Centro = 'Nº de Ações'
+    legend_order = 'reversed'
+  elif tipo_portfolio == "min_vol":
     titulo_grafico = " % - Volatilidade Mínima (Histórica)"
     color_pattern = px.colors.sequential.dense
     compl = ""
@@ -131,7 +140,7 @@ def pie_Plot_Tickers(df, tipo_portfolio, hole=0.3):
   elif tipo_portfolio == "aloc_max_risk":
     color_pattern = px.colors.sequential.Emrld
     titulo_grafico = " em Qtdes. de Ações por $100 mil "
-    compl = "Porfólio de Máx. Risco Tolerado"
+    compl = "Porfólio de Máx. Risco Tolerado de 20% por Ativo"
     txt_Centro = 'Nº de Ações'
     legend_order = 'reversed'
 
@@ -154,9 +163,9 @@ def pie_Plot_Tickers(df, tipo_portfolio, hole=0.3):
 
   fig.update_layout(title_text="Alocação " + titulo_grafico,
                     title_x=0,
-                    title_font_size=16,
+                    title_font_size=20,
                     legend_title='Tickers',
-                    annotations=[dict(text=txt_Centro, x=0.5, y=0.5, font_size=16, showarrow=False)],  # Texto central
+                    annotations=[dict(text=txt_Centro, x=0.5, y=0.5, font_size=18, showarrow=False)],  # Texto central
                     showlegend=True,
                     width=600,
                     height=600,
@@ -168,7 +177,7 @@ def pie_Plot_Tickers(df, tipo_portfolio, hole=0.3):
                     font=dict(color='#383635', size=16)
                     )
 
-  if (tipo_portfolio == 'aloc_min_vol'):
+  if (tipo_portfolio == 'aloc_min_vol')|(tipo_portfolio == 'aloc_max_sharpe')|(tipo_portfolio == 'aloc_max_risk'):
     fig.update_traces(textinfo='value')
 
   # fig.show()
@@ -176,33 +185,49 @@ def pie_Plot_Tickers(df, tipo_portfolio, hole=0.3):
   return fig
 
 
-# def view_Table(df):
-#  # df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv')
-#  val = []
-#
-#  for i in range(len(df.columns)):
-#    val.append(df[df.columns[i]])
-#
-#  fig = go.Figure(data=[go.Table(
-#      header=dict(values=list(df.columns),
-#      header=dict(values=list(df.columns),
-#                  fill_color='red',
-#                  font_color='white',
-#                  align='left'),
-#      # cells=dict(values=[df.Rank, df.State, df.Postal, df.Population],
-#      cells=dict(values=[val[i] for i in range(len(val))],
-#                 fill_color='lavender'))
-#
-#  ])
-#  fig.update_layout(
-#      title={'text': 'Dados dos Ativos Escolhidos',
-#             'x': 0,
-#             'xanchor': 'left',
-#             'yanchor': 'top'}
-#  )
-#
-#  # fig.show()
-#  st.plotly_chart(fig)
+def view_Table(df):
+    # df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2014_usa_states.csv')
+    '''
+    df.style.format(precision=0, na_rep='MISSING', thousands=".",
+                formatter={('Rebalanceamento', 'Buy&Hold'): "{:.2f}" #,
+                           #('Regression', 'Non-Tumour'): lambda x: "$ {:,.1f}".format(x*-1e6)
+                          })
+    
+
+    df.style.format({"Rebalanceamento": "{:,.2f}", 
+                          "Buy&Hold": "{:,.2f}"                          
+    })
+
+    '''
+
+    with pd.option_context('display.float_format', '{:0.2f}%'.format):
+
+      df.reset_index(drop=False, inplace=True)
+      
+      val = []
+      for i in range(len(df.columns)):
+            val.append(df[df.columns[i]])
+
+      fig = go.Figure(data=[go.Table(
+          #header=dict(values=list(df.columns),
+
+          header=dict(values=list(df.columns),
+                      fill_color='red',
+                      font_color='white',
+                      align='left'),
+          # cells=dict(values=[df.Rank, df.State, df.Postal, df.Population],
+          cells=dict(values=[val[i] for i in range(len(val))],
+                     fill_color='lavender'))
+      ])
+
+      fig.update_layout(title={'text': 'Indicadores do Portfólio', 'x': 0,
+                             'xanchor': 'left', 'yanchor': 'top'},
+                      margin=dict(t=50, b=0, l=0, r=0),
+                      width=1000,
+                      height=300
+                      )
+      st.plotly_chart(fig)
+    
 
 def view_Table2(df):
 

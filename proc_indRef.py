@@ -42,7 +42,7 @@ def ret_Acum_Diario(df):
 def incl_Ifix(df):
     df.reset_index(inplace=True)
     # Lendo o arquivo do IFIX
-    ifix = pd.read_csv('tmp/IFIX_PREP.csv')
+    ifix = pd.read_csv('IFIX_PREP.csv')
     # Converte valores do IFIX
     ifix['Valor'] = ifix['Valor'].astype(np.float64)
     # Compatibiliza as colunas no padrao yFinance
