@@ -99,7 +99,7 @@ def indic (dfi, data_i, data_f, rf=4.86):
     rebalanceamento = bt.Strategy('rebalanceamento', 
                     [bt.algos.RunMonthly(run_on_end_of_period=True),
                      bt.algos.SelectAll(),
-                     bt.algos.CapitalFlow(1000),
+                     bt.algos.CapitalFlow(100000),
                      bt.algos.WeighSpecified(**super),
                      bt.algos.Rebalance()])
 
@@ -201,11 +201,11 @@ def indic (dfi, data_i, data_f, rf=4.86):
 
     with pd.option_context('display.float_format', '{:0.2f}%'.format):
         rebal = round(float(df_yearly_sharpe.loc['yearly_sharpe':'yearly_sharpe', 'rebalanceamento'].values[0]), 2)
-        df_yearly_sharpe.loc['yearly_sharpe':'yearly_sharpe', 'rebalanceamento'] = rebal*100.00
+        df_yearly_sharpe.loc['yearly_sharpe':'yearly_sharpe', 'rebalanceamento'] = rebal*1.00
         # print(rebal)
 
         buy = round(float(df_yearly_sharpe.loc['yearly_sharpe':'yearly_sharpe', 'Buy&Hold'].values[0]), 2)
-        df_yearly_sharpe.loc['yearly_sharpe':'yearly_sharpe', 'Buy&Hold'] = buy*100.00
+        df_yearly_sharpe.loc['yearly_sharpe':'yearly_sharpe', 'Buy&Hold'] = buy*1.00
         # print(df_yearly_sharpe)
 
     # Concatenando tudo
