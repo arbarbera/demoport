@@ -369,8 +369,12 @@ if e_mail:
                     with col2:
                         
                         st.write("  ")
-                        st.markdown(''' ### **Indicadores do Portfólio - Beta Teste** ''')
                         st.write("  ")
+                        st.write("  ")
+                        new_title = new_title = '<p style="font-family:sans-serif; color:Black; font-size: 18px;"><b>Indicadores do Portfólio - Beta Teste</b></p>'
+                        #st.write("  ")
+                        #st.markdown(''' ### **Indicadores do Portfólio - Beta Teste** ''')
+                        #st.write("  ")
                         #plot_funcs1.view_Table2(df_disp)
                         
                         df_indic, _= new_indic.indic(df, data_inicio, data_fim, rf=4.86)
