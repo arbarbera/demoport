@@ -2,6 +2,7 @@ altair==4.1.0
 altgraph==0.17
 beautifulsoup4==4.9.3
 bs4==0.0.1
+bt
 certifi==2021.5.30
 ork
 chart-studio==1.1.0
