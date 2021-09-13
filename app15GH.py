@@ -371,7 +371,8 @@ if e_mail:
                         st.write("  ")
                         st.write("  ")
                         st.write("  ")
-                        new_title = new_title = '<p style="font-family:sans-serif; color:Black; font-size: 18px;"><b>Indicadores do Portfólio - Beta Teste</b></p>'
+                        new_title = '<p style="font-family:sans-serif; color:Black; font-size: 18px;"><b>Indicadores do Portfólio - Beta Teste</b></p>'
+                        st.markdown(new_title, unsafe_allow_html=True)
                         #st.write("  ")
                         #st.markdown(''' ### **Indicadores do Portfólio - Beta Teste** ''')
                         #st.write("  ")
