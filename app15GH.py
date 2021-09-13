@@ -312,7 +312,7 @@ tipo_ativo = ''
 
 if e_mail:
 
-    tipo_ativo = st.sidebar.selectbox('Escolha o Tipo de Ativo', ['Ações', 'FIIs', 'REITs', 'Stocks', 'Outros'])
+    tipo_ativo = st.sidebar.selectbox('Escolha o Tipo de Ativo', ['FIIs'])
 
     if tipo_ativo == 'Ações':
         op_List = gera_Lista(path='tmp/', name_file='fii_B3', type_file='csv', codbdi=2)  # usando st.cache
