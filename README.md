@@ -19,4 +19,4 @@ As funcionalidades já suportadas pelo aplicativo contemplam estimativa do retor
 6. A**locação para Portfólio com Concentração Forçada em determinados segmentos do mercado** (fornecidos pelo cliente em formato texto), plotando pie-chart e quantidades a serem adquiridas.
 
 ## Mode de Usar
-
+Siga as instruções da land page do aplicativo.
