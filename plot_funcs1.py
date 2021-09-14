@@ -75,12 +75,12 @@ def plot_02(df, period='diaria'):
   ativos = df.columns
 
   my_dpi = 96
-  width_fig = 800 / my_dpi
-  height_fig = 500 / my_dpi
+  width_fig = 680 / my_dpi
+  height_fig = 480 / my_dpi
 
   fig = plt.figure(figsize=(width_fig, height_fig), dpi=my_dpi * 2)
 
-  plt.title(tit_1, fontsize=12, color='grey')
+  plt.title(tit_1, fontsize=10, color='grey')
   ax = plt.gca()  # get current axis
   ax.yaxis.set_major_formatter(FuncFormatter(format_tick_labels))
 
@@ -163,7 +163,7 @@ def pie_Plot_Tickers(df, tipo_portfolio, hole=0.3):
 
   fig.update_layout(title_text="Alocação " + titulo_grafico,
                     title_x=0,
-                    title_font_size=20,
+                    title_font_size=17,
                     legend_title='Tickers',
                     annotations=[dict(text=txt_Centro, x=0.5, y=0.5, font_size=18, showarrow=False)],  # Texto central
                     showlegend=True,

@@ -410,7 +410,7 @@ if e_mail:
                         st.markdown(''' ### **Gráfico comparativo dos Ativos do Portfólio** ''')
 
                         if tipo_ativo == "FIIs":
-                            st.write("Ativos escolhidos e o IFIX")
+                            st.markdown(''' #### **Ativos escolhidos e o IFIX** ''')
                             plot_funcs1.plot_02(df_acum_c_IFIX, 'acum')
                         else:
                             st.write("Ativos escolhidos")
