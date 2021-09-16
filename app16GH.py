@@ -275,11 +275,11 @@ with col2:
         <p></p>
         <p>&nbsp</p>
         <h3>1 - Informe seu nome e melhor e-mail (e tecle TAB). </h3>
-        <h3>2 - Escolha o Tipo de Ativo a partir da lista suspensa da esquerda (e tecle TAB). </h3>
-        <h3>3 - Selecione os Ativos da sua Carteira a partir da lista (clique a seta antes de digitar). </h3>
+        <h3>2 - Escolha o Tipo de Ativo a partir da lista suspensa (e tecle TAB). </h3>
+        <h3>3 - Selecione os Ativos da Carteira (clique a seta antes de digitar). </h3>
         <h3>4 - Confirme suas escolhas. </h3>
         <h3>5 - Se houver mensagem de alerta, substitua o ativo.</h3>
-        <h3>6 - Para sair do App basta fechar o navegador.</h3>  
+        <h3>6 - Para sair do App basta fechar o navegador.</h3>   
     </div>
     """
     st.markdown(Title_html, unsafe_allow_html=True)  # Title rendering
