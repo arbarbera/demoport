@@ -288,8 +288,8 @@ def view_Table2(df):
   ############### Fronteira Eficiente
 
 def fronteira(pf1):
-  from modulos import montecarlo as mc
-  from modulos import ef_frontier as ef
+  import montecarlo as mc
+  import ef_frontier as ef
 
   #df3 = pf1.comp_daily_log_returns()
   df3 = pf1.comp_daily_returns()
