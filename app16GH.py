@@ -165,7 +165,7 @@ def val_Stocks(df_Pos_Escolha, min_limit=30):
 # Montagem da lista de ativos para serem selecionados com multiselect da Streamlit
 
 @st.cache(suppress_st_warning=True)
-def gera_Lista(path='X://Portfolios//Streamlit//Porti//', name_file='all_B3', type_file='csv', codbdi=12):
+def gera_Lista(path='tmp/', name_file='fii_B3', type_file='csv', codbdi=12):
     _file = f'{path}{name_file}.{type_file}'
 
     df2 = pd.read_csv(_file)
@@ -300,7 +300,7 @@ else:
     st.sidebar.success('Obrigado')
 
 if e_mail:
-    with open('e_mail.csv', 'a', newline='', encoding='ISO-8859-1') as f:
+    with open('tmp/e_mail.csv', 'a', newline='', encoding='ISO-8859-1') as f:
         dia = date.today()
         data_hoje = dia.strftime("%Y-%m-%d")
         dados = [data_hoje, e_mail, nome]
@@ -308,8 +308,8 @@ if e_mail:
         writer_obj.writerow(dados)
         f.close()
 
-    file_name = 'e_mail.csv'
-    file_name_no_dup = 'e_mail_no_dup.csv'
+    file_name = 'tmp/e_mail.csv'
+    file_name_no_dup = 'tmp/e_mail_no_dup.csv'
     df = pd.read_csv(file_name, sep=',', encoding='ISO-8859-1')
     df.drop_duplicates(subset=None, keep=False, inplace=True)
     # escreve o resultado em outro arquivo
@@ -325,7 +325,7 @@ tipo_ativo = ''
 
 if e_mail:
 
-    tipo_ativo = st.sidebar.selectbox('Escolha o Tipo de Ativo', ['Ações', 'FIIs', 'REITs', 'Stocks', 'Outros'])
+    tipo_ativo = st.sidebar.selectbox('Escolha o Tipo de Ativo', ['FIIs'])
 
     if tipo_ativo == 'Ações':
         op_List = gera_Lista(path='X://Portfolios//Streamlit//Porti//', name_file='all_B3', type_file='csv', codbdi=2)  # usando st.cache
