@@ -32,12 +32,8 @@ from matplotlib.pyplot import figure
 import matplotlib as mpl
 
 import seaborn as sns
+
 import pandas as pd
-
-# Locais
-import montecarlo as mc
-import ef_frontier as ef
-
 # def plot_01(df):
 #  def format_tick_labels(y, pos):
 #    return '{0:.2f}'.format(y)
@@ -80,7 +76,7 @@ def plot_02(df, period='diaria'):
   ativos = df.columns
 
   my_dpi = 96
-  width_fig = 680 / my_dpi
+  width_fig = 720/ my_dpi
   height_fig = 480 / my_dpi
 
   fig = plt.figure(figsize=(width_fig, height_fig), dpi=my_dpi * 2)
@@ -292,9 +288,22 @@ def view_Table2(df):
   ############### Fronteira Eficiente
 
 def fronteira(pf1):
-  
+  from modulos import montecarlo as mc
+  from modulos import ef_frontier as ef
+
   #df3 = pf1.comp_daily_log_returns()
   df3 = pf1.comp_daily_returns()
+
+  cols_sem_sa = []
+  cols = df3.columns
+  for i in range(len(cols)):
+    a = cols[i].replace('.SA', '')
+    cols_sem_sa.append(a)
+
+  #df4 = df3.copy()
+  #df4.columns = cols_sem_sa
+  pf1.data.columns = cols_sem_sa
+
   # Parametros gerais da figura
   #fig = plt.Figure(figsize = (18,10))
 
@@ -308,11 +317,14 @@ def fronteira(pf1):
 
   plt.rcParams["figure.figsize"] = (18,10)
   N=100
-  cmap = plt.get_cmap('BuPu', N)
+  #cmap = plt.get_cmap('BuPu', N)
+  #cmap = plt.get_cmap('PiYG', N)
+  cmap = plt.get_cmap('Greens', N)
   plt.rcParams["image.cmap"] = cmap
 
   plt.rcParams["figure.autolayout"] = True #(default: False)
-  mo = mc.MonteCarloOpt(df3)
+
+  mo = mc.MonteCarloOpt(df4)
   opt_w, opt_res = mo.optimisation()
   mo.plot_results(cmap)
 
