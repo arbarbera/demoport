@@ -300,8 +300,8 @@ def fronteira(pf1):
     a = cols[i].replace('.SA', '')
     cols_sem_sa.append(a)
 
-  #df4 = df3.copy()
-  #df4.columns = cols_sem_sa
+  df4 = df3.copy()
+  df4.columns = cols_sem_sa
   pf1.data.columns = cols_sem_sa
 
   # Parametros gerais da figura
