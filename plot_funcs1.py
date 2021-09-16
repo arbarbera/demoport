@@ -29,10 +29,15 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
 from matplotlib import cm
 from matplotlib.pyplot import figure
+import matplotlib as mpl
 
 import seaborn as sns
-
 import pandas as pd
+
+# Locais
+import montecarlo as mc
+import ef_frontier as ef
+
 # def plot_01(df):
 #  def format_tick_labels(y, pos):
 #    return '{0:.2f}'.format(y)
@@ -283,3 +288,38 @@ def view_Table2(df):
 
   # fig.show()
   st.plotly_chart(fig)
+
+  ############### Fronteira Eficiente
+
+def fronteira(pf1):
+  
+  #df3 = pf1.comp_daily_log_returns()
+  df3 = pf1.comp_daily_returns()
+  # Parametros gerais da figura
+  #fig = plt.Figure(figsize = (18,10))
+
+  fig, ax = plt.subplots()
+
+  #>>> ax.scatter([1, 2, 3], [1, 2, 3])
+  #>>>    ... other plotting actions ...
+  #>>> st.pyplot(fig)
+  # You can disable this warning by disabling the config option: deprecation.showPyplotGlobalUse
+  # st.set_option('deprecation.showPyplotGlobalUse', False)
+
+  plt.rcParams["figure.figsize"] = (18,10)
+  N=100
+  cmap = plt.get_cmap('BuPu', N)
+  plt.rcParams["image.cmap"] = cmap
+
+  plt.rcParams["figure.autolayout"] = True #(default: False)
+  mo = mc.MonteCarloOpt(df3)
+  opt_w, opt_res = mo.optimisation()
+  mo.plot_results(cmap)
+
+  # minimisation to compute efficient frontier and optimal portfolios along it
+  pf1.ef_plot_efrontier()
+  pf1.ef_plot_optimal_portfolios()
+  # plotting individual stocks
+  pf1.plot_stocks()
+  st.set_option('deprecation.showPyplotGlobalUse', False)
+  st.pyplot(fig)

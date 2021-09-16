@@ -57,6 +57,7 @@ def indic (dfi, data_i, data_f, rf=4.86):
         fig.axes.legend(fontsize=y_size);
         return fig
 
+
     #####  Parâmetros de entrada
     data_inicio = data_i
     data_fim    = data_f
