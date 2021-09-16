@@ -328,7 +328,8 @@ class EfficientFrontier(object):
         plt.title("Fronteira Eficiente", fontsize=18)
         plt.xlabel("Volatilidade", fontsize=18)
         plt.ylabel("Retorno Esperado", fontsize=18)
-        plt.legend()
+        plt.legend(loc="upper left", fontsize=10)
+        #plt.legend()
     
 
     def plot_optimal_portfolios(self):
