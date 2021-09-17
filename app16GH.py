@@ -116,6 +116,7 @@ def get_Data1(tickers_selected, tipo=""):
     # df.to_csv('app_B3.csv', index=True)
 
     df = val_Stocks(df)
+    pf1.data = df
 
     return df.loc[d_ini:d_end], d_ini, d_end, pf1
 
