@@ -338,16 +338,16 @@ if e_mail:
     tipo_ativo = st.sidebar.selectbox('Escolha o Tipo de Ativo', ['Ações', 'FIIs', 'REITs', 'Stocks', 'Outros'])
 
     if tipo_ativo == 'Ações':
-        op_List = gera_Lista(path='X://Portfolios//Streamlit//Porti//', name_file='all_B3', type_file='csv', codbdi=2)  # usando st.cache
+        op_List = gera_Lista(path='tmp/', name_file='fii_B3', type_file='csv', codbdi=12)  # usando st.cache
 
     if tipo_ativo == 'FIIs':
         op_List = gera_Lista()  # usando st.cache
 
     if tipo_ativo == 'REITs':
-        op_List = gera_Lista(path='X://Portfolios//Streamlit//Porti//', name_file='US_REITs', type_file='csv', codbdi="")  # usando st.cache
+        op_List = gera_Lista(path='tmp/', name_file='US_REITs', type_file='csv', codbdi="")  # usando st.cache
 
     if tipo_ativo == 'Stocks':
-        op_List = gera_Lista(path='X://Portfolios//Streamlit//Porti//', name_file='US_Stocks', type_file='csv', codbdi="")  # usando st.cache
+        op_List = gera_Lista(path='tmp/', name_file='US_Stocks', type_file='csv', codbdi="")  # usando st.cache
 
     _OK = ""
     _Ciao = ""
