@@ -325,9 +325,9 @@ class EfficientFrontier(object):
             lw=2,
             label="Fronteira Eficiente",
         )
-        plt.title("Fronteira Eficiente", fontsize=18)
-        plt.xlabel("Volatilidade", fontsize=18)
-        plt.ylabel("Retorno Esperado", fontsize=18)
+        plt.title("Fronteira Eficiente", fontsize=20)
+        plt.xlabel("Volatilidade Histórica", fontsize=20)
+        plt.ylabel("Retorno Esperado", fontsize=20)
         plt.legend(loc="upper left", fontsize=10)
         #plt.legend()
     

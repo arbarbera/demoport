@@ -563,7 +563,7 @@ class Portfolio(object):
 
     # optimising the investments by performing a Monte Carlo run
     # based on volatility and sharpe ratio
-    def mc_optimisation(self, num_trials=1000):
+    def mc_optimisation(self, num_trials=800):
         """Interface to
         ``finquant.monte_carlo.MonteCarloOpt.optimisation``.
         Optimisation of the portfolio by performing a Monte Carlo
@@ -615,7 +615,7 @@ class Portfolio(object):
         stock_volatility = self.comp_stock_volatility(freq=freq)
         # adding stocks of the portfolio to the plot
         # plot stocks individually:
-        plt.scatter(stock_volatility, stock_returns, color='b', marker="o", s=100, label="Ativos")
+        plt.scatter(stock_volatility, stock_returns, color='#38FD03', marker="o", s=150, label="Ativos")
         # adding text to stocks in plot:
         for i, txt in enumerate(stock_returns.index):
             plt.annotate(

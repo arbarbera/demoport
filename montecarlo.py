@@ -186,7 +186,7 @@ class MonteCarloOpt(MonteCarlo):
             self.df_results["Expected Return"],
             c=self.df_results["Sharpe Ratio"],
             cmap=cmap,
-            s=20,
+            s=40,
             label=None,
         )
         cbar = plt.colorbar()
@@ -232,7 +232,7 @@ class MonteCarloOpt(MonteCarlo):
             "Simulação pelo Método de Monte Carlo para otimização do portfolio " + 
             "baseado na Fronteira Eficiente"
         )
-        plt.xlabel("Volatilidade [period=" + str(self.freq) + "]")
+        plt.xlabel("Volatilidade Histórica [period=" + str(self.freq) + "]")
         plt.ylabel("Retorno Esperado [periodo= " + str(self.freq) + "]")
         cbar.ax.set_ylabel("Índice de Sharpe [periodo de " + str(self.freq) + " dias úteis]", rotation=90, fontsize=20)
         plt.legend()

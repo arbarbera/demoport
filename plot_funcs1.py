@@ -75,9 +75,9 @@ def plot_02(df, period='diaria'):
 
   ativos = df.columns
 
-  my_dpi = 96
+  my_dpi = 116  # 96
   width_fig = 720/ my_dpi
-  height_fig = 480 / my_dpi
+  height_fig = 540/ my_dpi
 
   fig = plt.figure(figsize=(width_fig, height_fig), dpi=my_dpi * 2)
 
@@ -296,6 +296,7 @@ def fronteira(pf1):
 
   cols_sem_sa = []
   cols = df3.columns
+
   for i in range(len(cols)):
     a = cols[i].replace('.SA', '')
     cols_sem_sa.append(a)
@@ -315,11 +316,11 @@ def fronteira(pf1):
   # You can disable this warning by disabling the config option: deprecation.showPyplotGlobalUse
   # st.set_option('deprecation.showPyplotGlobalUse', False)
 
-  plt.rcParams["figure.figsize"] = (18,10)
+  plt.rcParams["figure.figsize"] = (20,12)
   N=100
   #cmap = plt.get_cmap('BuPu', N)
-  #cmap = plt.get_cmap('PiYG', N)
-  cmap = plt.get_cmap('Greens', N)
+  cmap = plt.get_cmap('PiYG', N)
+  #cmap = plt.get_cmap('Greens', N)
   plt.rcParams["image.cmap"] = cmap
 
   plt.rcParams["figure.autolayout"] = True #(default: False)

@@ -223,14 +223,14 @@ def indic (dfi, data_i, data_f, rf=4.86):
 
         df_portf_stats = pd.concat([df_start_end, df_rf, df_total_return, df_cagr, df_yearly_sharpe, df_max_drawdown, df_avg_drawdown_days, df_best_worst_month])
         df = df_portf_stats.copy()
-        ind = ['Data_Inicial', 'Data_Final', 'Ativo_Risk_Free', 'Retorno_Total', 'CAGR_(Taxa_de_Cresc.)', 'Indice_Sharpe_Anualizado', \
-        'Queda_Maxima', 'Dias_de_Queda', 'Rentab_Melhor_Mes', 'Rentab_Pior_Mes']
+        ind = ['Data Inicial', 'Data Final', 'Tx. Livre de Risco ('+r'%'+' aa.)', 'Retorno Total ('+r'%'+' no período)', 'CAGR ('+r'%'+' aa.)', 'Indice de Sharpe Anualizado', \
+        'Queda Máxima ('+r'%'+' aa.)', 'Dias de Queda', 'Rentab. Melhor Mês ('+r'%'+' aa.)', 'Rentab. Pior Mês ('+r'%'+' aa.)']
         df.index = ind
 
         df[['rebalanceamento', 'Buy&Hold']]
-        df.loc['Data_Inicial']['rebalanceamento'] = df.loc['Data_Inicial']['rebalanceamento'].strftime('%Y-%m-%d')
-        df.loc['Data_Inicial']['Buy&Hold'] = df.loc['Data_Inicial']['Buy&Hold'].strftime('%Y-%m-%d')
-        df.loc['Data_Final']['rebalanceamento'] = df.loc['Data_Final']['rebalanceamento'].strftime('%Y-%m-%d')
-        df.loc['Data_Final']['Buy&Hold'] = df.loc['Data_Final']['Buy&Hold'].strftime('%Y-%m-%d')
+        df.loc['Data Inicial']['rebalanceamento'] = df.loc['Data Inicial']['rebalanceamento'].strftime('%Y-%m-%d')
+        df.loc['Data Inicial']['Buy&Hold'] = df.loc['Data Inicial']['Buy&Hold'].strftime('%Y-%m-%d')
+        df.loc['Data Final']['rebalanceamento'] = df.loc['Data Final']['rebalanceamento'].strftime('%Y-%m-%d')
+        df.loc['Data Final']['Buy&Hold'] = df.loc['Data Final']['Buy&Hold'].strftime('%Y-%m-%d')
 
     return df, bt_estrat_plot(resultados, 20, 10)
