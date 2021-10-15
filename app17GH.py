@@ -175,7 +175,7 @@ def val_Stocks(df_Pos_Escolha, min_limit=30):
 # Montagem da lista de ativos para serem selecionados com multiselect da Streamlit
 
 @st.cache(suppress_st_warning=True)
-def gera_Lista(path='tmp/', name_file='all_B3', type_file='csv', codbdi=12):
+def gera_Lista(path='tmp/', name_file='fii_B3', type_file='csv', codbdi=12):
     _file = f'{path}{name_file}.{type_file}'
 
     df2 = pd.read_csv(_file)
