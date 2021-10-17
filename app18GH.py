@@ -178,7 +178,7 @@ def val_Stocks(df_Pos_Escolha, min_limit=30):
 def gera_Lista(path='tmp/', name_file='all_B3', type_file='csv', codbdi=12):
     _file = f'{path}{name_file}.{type_file}'
 
-    df2 = pd.read_csv(_file, sep=',')
+    df2 = pd.read_csv(_file, sep=';')
 
     if codbdi:
         df2 = df2[['sigla_acao', 'codbdi']]
