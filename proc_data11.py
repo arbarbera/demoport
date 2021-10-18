@@ -141,7 +141,7 @@ def port_Max_Risk_055(S, rmed, max_risk=0.60, gamma=0.1):
     ef.efficient_risk(target_volatility=max_risk)
 
     ####
-    min_weight, max_weight = 0.01, 0.20
+    min_weight, max_weight = 0.01, 0.30
 
     weights = ef.nonconvex_objective(
         objective_functions.sharpe_ratio,
