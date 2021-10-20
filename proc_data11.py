@@ -123,7 +123,7 @@ def aloc_Min_Vol(df, pesos, valor=100000):
 #
 
 
-def port_Max_Risk(S, rmed, max_risk=0.80, gamma=0.1):
+def port_Max_Risk(S, rmed, max_risk=0.45, gamma=0.1):
     ef = EfficientFrontier(rmed, S)
     ef.add_objective(objective_functions.L2_reg, gamma=gamma)  # minimiza zeros nos pesos retornado
 
@@ -136,7 +136,7 @@ def port_Max_Risk(S, rmed, max_risk=0.80, gamma=0.1):
     return peso_ajustado, ef  # pesos de alocação e objeto ef
 
 
-def port_Max_Risk_055(S, rmed, max_risk=0.60, gamma=0.1):
+def port_Max_Risk_055(S, rmed, max_risk=0.45, gamma=0.1):
     ef = EfficientFrontier(rmed, S)
     ef.efficient_risk(target_volatility=max_risk)
 
