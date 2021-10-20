@@ -557,7 +557,7 @@ if e_mail:
                         ##### PORTFOLIO DE RISCO MÁXIMO TOLERADO PELO INVESTIDOR 
 
                         # (12) Obtém os PESOS do portfólio de Risco Máx. tolerado pelo Investidor e da respectiva fronteira eficiente
-                        pesos_Max_Risk, fronteira_eficiente_Max_Risk = proc_data11.port_Max_Risk_055(covar, retorno_medio, max_risk=0.25, gamma=0.1)
+                        pesos_Max_Risk, fronteira_eficiente_Max_Risk = proc_data11.port_Max_Risk_055(covar, retorno_medio, max_risk=0.45, gamma=0.1)
                         # pesos_Max_Risk, fronteira_eficiente_Max_Risk = proc_data11.port_max_Sharpe_055(covar, retorno_medio)
 
                         # (13) ALOCAÇÃO com RISCO MÁXIMO ADMITIDO pelo investidor - Obtém os percentuais de alocacao do portfólio RISCO Máx., para um valor de patrimônio
